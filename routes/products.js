@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 var Product = require("../db/models/products");
 
 /* GET products listing. */
-router.get("/", (req, res, next) => {
+router.get("/*", (req, res, next) => {
   Product.find({}, (err, result) => {
     if (err) {
       console.debug("Hey Look! Error", err);
@@ -17,7 +17,7 @@ router.get("/", (req, res, next) => {
 });
 
 // Create new product
-router.post("/", (req, res, next) => {
+router.post("/*", (req, res, next) => {
   console.debug(req.body);
   const data = req.body;
   const product1 = new Product({
@@ -37,7 +37,7 @@ router.post("/", (req, res, next) => {
 });
 
 
-router.delete("/:id", (req, res, next) => {
+router.delete("/*:id", (req, res, next) => {
   const id = req.params['id'] // use ID from the route parameter
   // const id = req.body._id;
   console.log("Delete this id ",id)
@@ -53,7 +53,7 @@ router.delete("/:id", (req, res, next) => {
 });
 
 //Update whole object or partially (PATCH)
-router.put("/", async (req, res, next) => {
+router.put("/*", async (req, res, next) => {
   console.debug(req.body);
   const data = req.body;
   const id = data._id;
