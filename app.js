@@ -29,7 +29,7 @@ app.use(cookieParser());
 
 
 // Plug routers
-app.use('/', indexRouter);
+app.use('/index', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products', productsRouter);
 app.use('/customers',customerRouter);
