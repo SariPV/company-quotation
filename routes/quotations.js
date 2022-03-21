@@ -26,7 +26,7 @@ router.post("/", (req, res, next) => {
   const year = dateObj.getUTCFullYear();
   const quotation1 = new Quotation({
     item: data.item,
-    date: dateObj,
+    date: day + "/" + month + "/" + year,
     qty: data.qty,
     price: data.price
  
